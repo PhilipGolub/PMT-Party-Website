@@ -1,0 +1,67 @@
+# OS/editor and local agent state
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+.codex/
+.agents/
+
+# Credentials and machine-local configuration; examples must contain placeholders only
+.env
+.env.*
+!.env.example
+.npmrc
+.pypirc
+auth.json
+wp-config.php
+wp-config-*.php
+.htpasswd
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials*.json
+service-account*.json
+
+# Dependencies, generated assets, and test output
+node_modules/
+vendor/
+/build/
+/dist/
+coverage/
+.phpunit.cache/
+.phpunit.result.cache
+.phpcs-cache
+.cache/
+playwright-report/
+test-results/
+
+# WordPress installations and runtime data, never custom plugins/ source
+wp-admin/
+wp-includes/
+/wordpress/
+/wp-content/
+uploads/
+cache/
+logs/
+*.log
+
+# Backups, database dumps, packages, private operational files
+backups/
+private/
+*.sql
+*.sql.*
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.wpress
