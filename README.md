@@ -11,7 +11,20 @@ Foundation for the public website redesign and future custom WordPress developme
 GitHub and WordPress are separate systems. This repository does not deploy itself
 and does not contain the WordPress database or a working local WordPress install.
 
-## Current state — November 17, 2026
+## Current staging state — November 17, 2026
+
+Authenticated Oxygen development now uses `https://oxygen.pmtparty.com`.
+Homepage draft **4640** has native components and descriptive Structure labels.
+Event inquiry draft **4662** has its Oxygen layout prepared; Formidable setup
+and submission tests await authenticated administration access.
+
+See the [initial homepage milestone](docs/homepage-editorial-milestone.md) and
+[current refinement and investigation record](docs/staging-refinement-2026-11-17.md)
+for verified versions, preview links, changes, and outstanding tests.
+The Oxygen Doctor warning remains under investigation. Nothing has been
+published, activated sitewide, or deployed to production.
+
+## Initial discovery snapshot — historical
 
 - Git read access was verified against the repository's configured HTTPS origin.
 - At initial inspection the server advertised an unborn default `HEAD` targeting

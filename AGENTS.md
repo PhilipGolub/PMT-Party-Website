@@ -54,6 +54,31 @@ its implementation until the public website foundation is approved.
 
 ## Implementation standards for later phases
 
+### Oxygen Structure panel naming
+
+- Give every authored element and reusable component instance a native custom
+  Structure label in the format `Section — Element Purpose`, for example
+  `Hero — Main Headline`, `Services — Wedding Card`, and `Inquiry — Form Embed`.
+- Name repeated items distinctly by service, project, step, or function. Name
+  containers as clearly as their contents; avoid CSS class names as labels.
+- Oxygen 6.2.2 MCP exposes the editor-only field `meta.friendlyName`. Recheck
+  the installed element schema before using it. Use `edit-post` to change only
+  that field for a naming pass; never invent unsupported properties.
+- Preserve CSS classes and selector IDs, HTML IDs, content, hierarchy, component
+  references, and behavior during naming. Apply the same convention to new
+  pages, shared components, and Formidable page wrappers.
+- Coordinate with open editor sessions before MCP writes. Ask the editor owner
+  to save and close tabs, reread the current tree, and avoid overwriting newer
+  work. Reopen the editor after changes rather than saving a stale session.
+- Verify persisted labels by rereading the saved tree; compare before/after
+  structure and preview markup for naming-only changes. Also verify labels in
+  the reopened visual editor when browser access permits. Clearly distinguish
+  server persistence from visual-editor verification.
+- Keep real Formidable fields and processing in Formidable. Name Oxygen form
+  containers and embeds clearly without creating a second form system.
+
+### Application implementation
+
 - Use PHP namespaces under `PMT` and `pmt_` prefixes for public identifiers.
 - Follow WordPress coding standards, documented APIs, and the verified runtime
   compatibility matrix. Pin dependencies and preserve lockfiles when introduced.
