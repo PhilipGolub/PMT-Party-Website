@@ -11,18 +11,27 @@ Foundation for the public website redesign and future custom WordPress developme
 GitHub and WordPress are separate systems. This repository does not deploy itself
 and does not contain the WordPress database or a working local WordPress install.
 
-## Current staging state — November 17, 2026
+## Current staging state — November 18, 2026
 
 Authenticated Oxygen development now uses `https://oxygen.pmtparty.com`.
 Homepage draft **4640** has native components and descriptive Structure labels.
-Event inquiry draft **4662** has its Oxygen layout prepared; Formidable setup
-and submission tests await authenticated administration access.
+Event inquiry draft **4662** now embeds genuine Formidable form **13**, an
+administrator-only working copy of the original event form **3**. Its five-step
+flow, conditional questions, validation, uploads, confirmations, and synthetic
+entry storage have been tested through native abilities and authenticated Chrome.
+The original form and its actions remain unchanged; the copy has no outbound
+notification, spreadsheet, webhook, or payment actions.
 
 See the [initial homepage milestone](docs/homepage-editorial-milestone.md) and
-[current refinement and investigation record](docs/staging-refinement-2026-11-17.md)
+[refinement and investigation record](docs/staging-refinement-2026-11-17.md), and
+[Formidable integration and verification](docs/formidable-inquiry-2026-11-18.md)
 for verified versions, preview links, changes, and outstanding tests.
 The Oxygen Doctor warning remains under investigation. Nothing has been
-published, activated sitewide, or deployed to production.
+published as a WordPress page, activated sitewide, or deployed to production.
+Formidable's internal form status is published so it can render, with access
+restricted to administrators. Sitewide staging protection, search-indexing
+restrictions, release checks, and explicit approval are still required before
+publishing either page.
 
 ## Initial discovery snapshot — historical
 

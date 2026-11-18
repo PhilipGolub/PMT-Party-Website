@@ -8,6 +8,7 @@ Thumbs.db
 .codex/
 .agents/
 .oxygen-prototype/
+.playwright-mcp/
 
 # Credentials and machine-local configuration; examples must contain placeholders only
 .env

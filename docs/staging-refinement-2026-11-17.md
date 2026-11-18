@@ -2,6 +2,11 @@
 
 Date: November 17, 2026. Target: https://oxygen.pmtparty.com only.
 
+Historical milestone record. The form-access limitations and pending Formidable
+work below were superseded on November 18 by the
+[completed staging Formidable integration](formidable-inquiry-2026-11-18.md).
+The Oxygen Doctor investigation remains unresolved.
+
 ## Current implementation
 
 | Object | ID | Status |

@@ -77,6 +77,30 @@ its implementation until the public website foundation is approved.
 - Keep real Formidable fields and processing in Formidable. Name Oxygen form
   containers and embeds clearly without creating a second form system.
 
+### Formidable staging development
+
+- Discover native Formidable abilities through the verified PMT staging MCP
+  connection before using other management routes. Use the official Formidable
+  skill and current ability schemas; do not invent a duplicate/import ability.
+- Preserve source form 3, its actions, and historical entries. Work on form 13
+  (`pmt-event-inquiry-staging`) in existing Oxygen inquiry draft 4662; do not
+  create another inquiry page or duplicate the completed homepage work.
+- Form 13 is administrator-only and has a confirmation action without email,
+  spreadsheet, webhook, or payment actions. Recheck actions before every test.
+  Use synthetic information only. Read test entries by known ID or exact
+  synthetic search within form 13; never list unrelated customer submissions.
+- Keep field processing, validation, conditional logic, uploads, progress, and
+  review inside Formidable. Use the labeled native Oxygen Shortcode element
+  for embedding, and Formidable's scoped style for form appearance.
+- Send explicit form status on updates and verify access restrictions afterward.
+  Formidable's renderable internal `published` status does not authorize
+  publication of WordPress pages 4640 or 4662.
+- Verify browser submission and entry storage as well as API validation. Test
+  protected file access without authentication using synthetic uploads only.
+  Do not treat accepted settings as proof of working privacy or notifications.
+- See `docs/formidable-inquiry-2026-11-18.md` for IDs, schema limitations, test
+  results, and publication gates. Git documentation is not a configuration backup.
+
 ### Application implementation
 
 - Use PHP namespaces under `PMT` and `pmt_` prefixes for public identifiers.
