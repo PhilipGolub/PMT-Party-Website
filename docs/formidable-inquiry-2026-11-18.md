@@ -366,3 +366,112 @@ This refinement remains on the existing development branch. Both WordPress
 pages are unpublished, and the original publication gates still apply. No
 production access or changes occurred. The new configuration is in WordPress;
 this Git record is not an Oxygen or Formidable backup/export.
+
+## Final inquiry UX refinements — November 19, 2026
+
+Implemented the owner's requested finishing pass on form **13**, its dedicated
+style **4685**, and Oxygen inquiry draft **4662**. The approved visual direction,
+native Summary/Edit controls, and conditional four-/five-stage flow remain.
+No writes targeted source form 3, homepage 4640, shared components, production,
+payment settings, public notification actions, or staging access restrictions.
+
+### Configuration capture and rollback
+
+Before modifying choices, captured the current 78 fields, form settings, sole
+confirmation action, dedicated style, and inquiry element tree. Local files are
+in the Git-ignored `private/` directory and contain configuration only, without
+entries, credentials, or customer records:
+
+- `form13-final-ux-before-20261118.json` — original configuration snapshot.
+- `form13-final-ux-rollback-20261118.json` — targeted native field updates,
+  Oxygen text/label operations, and original style settings for restoration.
+- `form13-final-ux-after-20261119.json` — saved configuration after refinement.
+
+The before snapshot's SHA-256 is
+`A2D283E3AF733448B786E913F271B90D47C89ECEC0289E23F813A5AF84F339BD`.
+JSON round-trip, target IDs, and rollback field/style values were verified
+against the snapshot. These are local configuration captures, not an official
+Formidable XML export, complete WordPress backup, or Git-backed recovery system.
+No live rollback was applied during testing.
+
+To roll back, first coordinate open editor sessions and reread current state.
+Apply the saved targeted field updates through `formidable-forms/update-field`,
+restore style 4685 through `update-style`, and apply the saved operations through
+Oxygen `edit-post` on 4662. Do not overwrite later owner edits. Reread and preview
+after restoration. No entry migration, deletion, or page publication is needed.
+
+### Changes
+
+| Target | Implemented refinement |
+| --- | --- |
+| Field 163 | Standalone custom-product order is the first actual choice; Bridal Shower added; other occasions grouped in a more useful sequence. All pre-existing choice values retained. Placeholder now says event or order type. |
+| Field 198 | Replaced the broad Under $1,000 choice for new inquiries with Under $250, $250–$499, and $500–$999. Higher ranges and I'm not sure yet retain their values. Help distinguishes product/combined décor budgets from overall event spending and states that ranges are not quotes or installation minimums. |
+| Fields 167 / 191 | Customer-facing wording now says Décor coordination and Décor coordination support. The service still stores `Event planning or coordination`, preserving the existing conditional match. |
+| Field 184 | Replaced postcode/collection terminology with ZIP code and pickup/delivery area. No new address requirement. |
+| Field 230 | Pickup requested is the display label; stored `Pickup / collection requested` remains unchanged. |
+| Field 205 | Décor breakdown or pickup window, with matching date guidance. Validation and installation conditions remain unchanged. |
+| Style 4685 | Labels/base text 15→16px; helper text 13→14px; field spacing 24→28px. Error borders use wine `#7c2635`, input text charcoal `#24211f`, and a subtle `#fffaf8` error background. Existing error message colors and accessible markup retained. |
+| Upload presentation | Scoped rules make the native dropzone fill the form width, with 144px minimum message height on desktop and 132px on mobile. Helpers use 1.6 line height and 6px top separation. Upload handling and limits are unchanged. |
+| Oxygen 4662 | Form headline now reads “Let’s start with your event or custom creation.” Introductory copy welcomes both audiences. Static overview says “Four steps. Five for installation,” marks Venue as IF / if needed, and Contact as stage 4–5. |
+
+No condition or action references budget field 198. The old broad budget value
+was not reassigned to a narrower meaning, and no historical entry was rewritten.
+An older saved `Under $1,000` answer remains historical data; it is no longer a
+selectable choice for a new inquiry. Entry editing remains disabled as before.
+
+The Oxygen pass updated existing text controls and renamed the overview's
+Structure label to `Inquiry — Conditional Stage Overview`. All **43** authored
+elements retain descriptive labels. Rereading the tree verified unchanged node
+types, child ordering, classes, HTML attributes, and shared component references.
+The native Shortcode embed remains unchanged. Oxygen preview confirmed the form
+and revised text render. The visual builder itself was not reopened in this pass.
+
+### Validation and functional results
+
+Native field requirements, conditional rules, date/time defaults, field order,
+privacy consent, Summary configuration, and upload settings were compared with
+the captured baseline and remain unchanged. Submit field 221 remains last.
+There was no demonstrated need to change validation logic.
+
+| Test | Result |
+| --- | --- |
+| Stage-local errors | Empty first-stage required fields showed only first-stage errors. Blank budget showed its error on Inspiration; Back to Services showed no budget error. |
+| Venue errors and Back | Missing setting, access confirmation, measurement certainty, restrictions, approval and acknowledgement blocked advancement. Back to Inspiration did not display those later-stage errors. |
+| Contact errors and Edit | Blank name, contact preference, email and consent blocked submission. Summary Edit to the first stage did not carry those contact errors onto it. |
+| Error accessibility | First invalid input received focus; `aria-invalid=true` and `aria-describedby` pointed to its error. Wine error border was confirmed in computed browser styling. Full screen-reader certification was not performed. |
+| Entry 51 — products only | Invitation order, pickup request and Under $250 persisted. Four stages, no installation questions, native confirmation, and normal stored entry verified. |
+| Entry 52 — event installation | Bridal Shower, unknown event date, décor coordination, $2,500–$4,999, estimated 12×6×10-foot space, unconfirmed access and pending approval persisted. Five-stage flow and installation requirements verified. |
+| Entry 53 — mixed / mobile | Sweet 16 with tentative June 12, 2027 date, décor and banner request, delivery request and installation Not sure retained the venue stage. Partly confirmed access/measurements and restrictions persisted. |
+| Smaller ranges and Edit | $500–$999 was accepted and shown in mixed review. Native Edit returned to Inspiration; changing to $250–$499 retained venue answers and appeared in review and saved entry 53. |
+| Stale answers | Apparel specifications were filled, then apparel deselected in the mixed request. They disappeared from review and were empty in entry 53. |
+| Optional times | Untouched event start/end and setup access/deadline all stored as empty strings in entry 52. Native AM selectors do not create a time without hour/minute values. No artificial defaults added. |
+| Responsive | Actual browser inspection at 1440×1000, 768×1024 and 390×844; no horizontal document overflow. Native mobile Summary stacking and Edit controls retained. |
+| Upload proportions | Native dropzone measured approximately 739×147px on desktop and 277×134px on mobile; visual checks confirmed readable instructions and preserved editorial styling. |
+| Console | No JavaScript errors in completed flows. Existing authenticated Hostinger widget warnings remained. |
+
+Only synthetic inquiries and exact test-entry searches were used. Entries
+**51–53** remain available for administrator review; no records were deleted.
+The existing confirmation appeared after each submission. Actions were rechecked:
+**4684**, the save-and-confirm action, is still the sole action. No email,
+spreadsheet, webhook, payment or other outbound action was added or enabled.
+
+### Visitor visibility and remaining limits
+
+Anonymous browser checks found no WordPress admin bar or Hostinger Agent UI on
+the returned WordPress 404 page for the unpublished inquiry. The staging root
+returned a 403 browser challenge. The authenticated preview does show those
+administrator tools. A complete ordinary-visitor rendering of this inquiry
+cannot be tested while it remains a draft restricted to administrators; access
+restrictions were not relaxed to obtain that test.
+
+Upload type/size restrictions, protected-file configuration and privacy consent
+were unchanged; the previously recorded upload/security tests remain applicable.
+No new upload was needed for this presentation-only pass. The Oxygen Doctor
+investigation was not reopened, and successful previewing is not a new claim of
+visual-editor recovery.
+
+Final connection check: `https://oxygen.pmtparty.com`, WordPress **7.1.5**,
+Oxygen **6.2.2**, PHP **8.5.12**. Both pages **4640** and **4662** remain **drafts**.
+Form 13 remains administrator-only with protected uploads. The existing
+publication gates and separate approval requirement still apply. Preview:
+`https://oxygen.pmtparty.com/?page_id=4662&preview=true`.

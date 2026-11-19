@@ -23,6 +23,11 @@ Conditional refinement now skips installation for requests without on-site setup
 adds product-specific specifications and deadlines, and clears irrelevant answers
 when selections change. Four additional browser test inquiries verified the
 products-only, installation, mixed, and change-of-mind paths.
+The final inquiry UX pass adds smaller product-budget ranges, Bridal Shower,
+clearer New York terminology, a conditional stage overview, and restrained
+readability improvements. Three more synthetic browser submissions verified
+products, installation and mixed mobile inquiries, stage-local validation,
+Back/Edit navigation, and blank optional times.
 The original form and its actions remain unchanged; the copy has no outbound
 notification, spreadsheet, webhook, or payment actions.
 
