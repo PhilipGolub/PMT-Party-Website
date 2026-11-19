@@ -100,6 +100,19 @@ its implementation until the public website foundation is approved.
   Do not treat accepted settings as proof of working privacy or notifications.
 - See `docs/formidable-inquiry-2026-11-18.md` for IDs, schema limitations, test
   results, and publication gates. Git documentation is not a configuration backup.
+- Preserve the approved form style 4685 during logic improvements. Use native
+  conditional fields and page breaks; do not add custom JavaScript to route
+  inquiries or reconstruct the native Summary field.
+- Form 13's venue page break 199 depends on installation field 192. Both Yes
+  and Not sure keep the installation questions; No skips the page. Preserve
+  fields 202–216 and the added access-confirmation field 231.
+- Product specifications are conditional by selected service. Shared product
+  preferences apply across remaining products; product-specific wording belongs
+  in that product's specifications. Test both changing categories and removing
+  every product, plus clearing a deadline and hiding a previously answered venue
+  page. Verify the final saved synthetic entry, not only hidden browser controls.
+- The owner added native submit field 221. Keep it last; do not assume this form
+  still uses only the form-level fallback submit button.
 
 ### Application implementation
 

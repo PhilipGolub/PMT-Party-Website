@@ -3,6 +3,10 @@
 Date: November 18, 2026. Target: https://oxygen.pmtparty.com only.
 Branch: `codex/staging-editorial-refinement`.
 
+The initial integration record below is followed by the
+[conditional-experience refinement](#conditional-experience-refinement), which
+records the current 78-field configuration and subsequent test entries 47–50.
+
 ## Result and ownership
 
 The existing Oxygen inquiry page now contains a functioning five-step Formidable
@@ -218,3 +222,147 @@ deleted or repaired speculatively.
   form 13 to its internal draft state through native tools. Preserve source form
   3 and synthetic evidence; do not delete forms, entries, or upload records as an
   automatic rollback. A Git revert cannot undo these WordPress changes.
+
+## Conditional-experience refinement
+
+Implemented November 18, 2026, New York time; final checks completed November 19
+UTC. The user authorized logic and content refinements while explicitly
+preserving the successful visual design. All writes in this pass targeted
+Formidable form 13 through native abilities. No new form or inquiry page was
+created. Read-only inspection of installed Formidable code verified page-break
+and Summary behavior where the generic field-options schema lacked detail.
+
+### Preserved design and existing work
+
+Before/after native reads verified:
+
+- Style 4685 is exactly unchanged, including typography, colors, dimensions,
+  spacing, responsive rules, and custom CSS.
+- Oxygen trees 4640, 4662, 4642, 4645, and 4648 are exactly unchanged. Structure
+  labels, the real form embed, shared components, and homepage remain intact.
+- Original form 3 is unchanged. No original submissions were accessed.
+- Form 13 options and action 4684 are unchanged. Administrator-only access,
+  protected upload settings, CAPTCHA, entry storage, confirmation, and absence
+  of outbound actions are preserved.
+- Upload field 197, CAPTCHA 180, privacy acknowledgement 219, venue
+  acknowledgement 216, and native submit 221 are exactly unchanged.
+- Existing installation fields 202–216, including their required flags and
+  conditional rules, are exactly unchanged.
+- Both WordPress pages remain drafts. No public access, business notifications,
+  payment actions, plugin changes, or live integrations were enabled.
+
+Native submit field 221 was present in the freshly read baseline, having been
+added since the initial integration. It remains last at order 471. This pass
+added 15 field records to that 63-record baseline, for **78 total records**.
+The record count includes explanatory HTML, page breaks, summary, CAPTCHA, and
+submit; it is not the number of questions shown to every customer.
+
+### Routing and changed existing fields
+
+| Fields | Change |
+| --- | --- |
+| 163 | Renamed to Event or order type; added Standalone custom-product order, including products intended for an event |
+| 164, 183, 165, 185, 186 | Hide guest count, event-date certainty, venue name, and event times for standalone orders; hidden answers are excluded by native logic |
+| 178 | Existing conditional event-date field retained unchanged; date certainty still controls it |
+| 184 | Event or fulfillment city / area, with delivery-area guidance |
+| 167 | Retained all services and added Decals and labels and Other personalized products; supports combined selections |
+| 189 | Reused as shared wording/names/personalization; item-specific wording belongs with each product's specifications |
+| 190, 191, 173 | Moved after product questions within the existing Services stage; content and conditions retained |
+| 192 | Still required for every request; clarified that setup includes custom products; No label now reads “No — no on-site setup needed,” preserving its original stored value |
+| 199 | Native conditional page break shows Venue only for 192 = Yes or Not sure yet; button caption is Continue so it also makes sense when Venue is skipped |
+| 198 | Budget label/help explicitly cover requested décor and custom products, distinct from total event budget |
+| 181, 188, 194, 200, 218 | Updated explanatory copy; removed fixed heading ordinals because the native progress control now correctly counts four or five stages |
+| 220 | Native Summary retained; clearer guidance explains review-group order, Edit controls, tentative dates, deadlines, estimates, access and restrictions |
+
+The form retains five stages when installation is requested or undecided.
+Selecting No on field 192 reduces it to four stages by skipping Venue, including
+during Back navigation. Product fulfillment stays within the Services stage;
+there is no extra step. Mixed requests retain the same product and installation
+rules, and “Not sure yet” conservatively keeps venue questions.
+
+### Added native fields
+
+| ID / key | Purpose and conditional rule |
+| --- | --- |
+| 222 / `pmt-product-heading` | Product-specification explanation when any product service is selected |
+| 223 / `pmt-product-quantity` | Banners: quantity, finished size with units, and item-specific wording; only Custom banners |
+| 224 / `pmt-product-size` | Signage/seating-chart quantity, size and item-specific wording; only Seating charts and signage |
+| 225 / `pmt-product-size-units` | Signage units, including Need guidance; only Seating charts and signage |
+| 226 / `pmt-apparel-sizes` | Garment type, sizes, quantities and placement; only Personalized apparel |
+| 227 / `pmt-product-material` | Optional shared material, finish or intended-use preferences; any product service |
+| 228 / `pmt-artwork-status` | Required artwork availability with print-ready, reference/logo, and design-guidance choices; any product service |
+| 229 / `pmt-product-deadline-status` | Required confirmed/tentative/unknown product-deadline status; any product service |
+| 230 / `pmt-product-fulfillment` | Required collection request, delivery request subject to availability, or Need guidance; any product service |
+| 231 / `pmt-venue-access-status` | Required confirmed/partly confirmed/unconfirmed access and load-in status; installation Yes or Not sure |
+| 232 / `pmt-budget-heading` | Budget explanation within existing Inspiration stage |
+| 233 / `pmt-product-needed-date` | Required completion date only for confirmed or tentative product deadlines; separate from the event date |
+| 234 / `pmt-invitation-specs` | Invitation/stationery quantity, size/format, envelopes, wording and finish if known; only Invitations and stationery |
+| 235 / `pmt-decal-specs` | Decal/label quantity, size with units, surface and wording if known; only Decals and labels |
+| 236 / `pmt-other-product-specs` | Other product, quantity, dimensions/units and wording if known; only Other personalized products |
+
+Specifications are optional and accept estimates or “Need guidance.” Related
+details share a small number of fields instead of repeating a long technical
+questionnaire for each product. Category-specific answers have their own native
+conditions so removing one product does not leave its specifications attached
+to another. Shared preferences deliberately apply across remaining products and
+are hidden/cleared when no product service remains.
+
+No shipping availability is claimed. Delivery is a request requiring review,
+with the city/area collected for assessment. Addresses, carrier selection and
+promised fulfillment arrangements are deferred until PMT confirms availability.
+
+### Native Summary capabilities and limitation
+
+The existing Summary continues to group answers into native page review cards,
+with native Edit navigation and the unchanged responsive presentation. Labels
+now explicitly distinguish product categories, deadline certainty, event-date
+certainty, access status, measurement certainty and mounting restrictions.
+
+The installed Summary offers `include_extras: ["html"]`, but enabling it and
+rereading the saved setting did not display the HTML section headings in the
+actual browser review. That experiment was reverted. Native Edit button text is
+hard-coded by this installed implementation; there is no exposed per-group label
+setting. Thus custom group headings and renamed Edit buttons are **not** claimed
+as implemented. Clearer review guidance and field labels were added instead.
+No unmanaged JavaScript, plugin-file edits, custom review renderer, new styling,
+or artificial hidden fields were introduced to work around the limitation.
+
+### Functional test results
+
+All data was synthetic. Only exact test searches within form 13 were read.
+
+| Entry / test | Verified result |
+| --- | --- |
+| 47 — products only | Standalone order hid event-only questions; invitations and decals persisted; native Venue skip produced four stages; tentative May 1, 2027 completion deadline and delivery request stored |
+| 47 — changed categories | Entered banner and apparel answers, then deselected them; both were absent from review and empty in the saved entry |
+| 47 — navigation | Summary Edit returned to Services and retained relevant answers; Back from Contact returned to Inspiration without stopping at Venue |
+| 48 — full installation | Five stages; unknown event date accepted; estimated 16 × 8 × 12-foot dimensions, unconfirmed access, load-in notes and mounting restrictions stored |
+| 48 — removed all products | Added then removed a product service; product specifications, shared material preferences, artwork status and fulfillment answers did not remain in review or storage |
+| 49 — mixed mobile request | Décor plus banners, signage, apparel and other products; tentative June 12 event date remained distinct from confirmed June 10 product deadline; venue questions retained for installation Not sure |
+| 49 — confirmed venue information | Confirmed access and measurements stored with 10 × 5 × 8-foot dimensions and freestanding-only mounting restrictions |
+| 50 — changed installation/deadline | Filled installation answers and a known product date, then changed to No installation and Need guidance/no date; old date, height, access, restrictions and venue acknowledgement were absent from review and empty in storage |
+| 50 — changed product | Removed apparel and selected other products; old apparel answer was cleared, new product specification retained |
+| Required product validation | Blank artwork availability, deadline status, fulfillment and setup intent blocked progression; a confirmed/tentative deadline required its date |
+| Required installation validation | Setting, access status, measurement certainty, mounting restrictions, approval status and acknowledgement blocked progression when missing |
+| Contact validation | Invalid email and missing privacy consent blocked submission; correcting them permitted confirmation and entry storage |
+| Date controls | Native calendar selected and persisted event/product dates through keyboard and pointer interactions |
+| Responsive | Desktop 1440×1000, tablet 820×1180 and mobile 390×844 checked; no horizontal document overflow; mobile review stacking and keyboard-operated controls retained |
+| Console | Completed flows had no JavaScript console errors; existing Hostinger widget warnings remain unrelated to the form changes |
+
+All four completed browser tests displayed the existing staging confirmation.
+No outbound action was added. The form is still administrator-only. Synthetic
+entries 47–50 remain for review; no entries or uploads were deleted.
+
+Upload/security settings were compared exactly against the tested baseline;
+unchanged file type/size limits and protected-download behavior were not
+needlessly retested. The initial integration's positive/negative upload tests
+and anonymous-download check remain the recorded evidence. Full screen-reader
+certification, alternate-role access, and the Oxygen Doctor/editor recovery
+investigation remain outside this logic-only pass.
+
+### Release state
+
+This refinement remains on the existing development branch. Both WordPress
+pages are unpublished, and the original publication gates still apply. No
+production access or changes occurred. The new configuration is in WordPress;
+this Git record is not an Oxygen or Formidable backup/export.

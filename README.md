@@ -19,6 +19,10 @@ Event inquiry draft **4662** now embeds genuine Formidable form **13**, an
 administrator-only working copy of the original event form **3**. Its five-step
 flow, conditional questions, validation, uploads, confirmations, and synthetic
 entry storage have been tested through native abilities and authenticated Chrome.
+Conditional refinement now skips installation for requests without on-site setup,
+adds product-specific specifications and deadlines, and clears irrelevant answers
+when selections change. Four additional browser test inquiries verified the
+products-only, installation, mixed, and change-of-mind paths.
 The original form and its actions remain unchanged; the copy has no outbound
 notification, spreadsheet, webhook, or payment actions.
 
