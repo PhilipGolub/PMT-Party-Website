@@ -3,9 +3,10 @@
 Date: November 18, 2026. Target: https://oxygen.pmtparty.com only.
 Branch: `codex/staging-editorial-refinement`.
 
-The initial integration record below is followed by the
-[conditional-experience refinement](#conditional-experience-refinement), which
-records the current 78-field configuration and subsequent test entries 47–50.
+This is a chronological implementation record. The latest
+[services and custom pieces refinement](#services-and-custom-pieces-refinement)
+records the current 87-field configuration and synthetic test entries 60–69.
+Earlier sections describe the configuration and checks at those milestones.
 
 ## Result and ownership
 
@@ -606,3 +607,183 @@ Oxygen's native preview rendered the real form and updated overview. Both pages
 Guest rendering of the unpublished form and visual-editor recovery were not
 claimed as tested by this pass. This Git record does not back up the runtime
 configuration; the private captures above are separate local artifacts.
+
+## Event-category ordering follow-up
+
+Date: November 19, 2026. Completed before the services refinement, in response
+to the owner's additional event-category instructions. Only field 163's choices
+changed. Its configuration and native rollback payload were captured in ignored
+`private/form13-categories-before-20261119.json` before the edit.
+
+The first five choices are Wedding, Engagement, Bridal Shower, Sweet 16 and
+Quinceañera. Standalone custom-product order is sixth and Corporate Event seventh,
+followed by Grand Opening / Brand Event, Gala or Fundraiser and Conference.
+Baby Shower was already present and remains. Added Baptism, Gender Reveal,
+Retirement Celebration and Family Reunion, for **30 actual choices** in total.
+Baptism, Christening, Communion and Confirmation precede Bar Mitzvah, Bat Mitzvah
+and B'nai Mitzvah / Joint Mitzvah, as requested. Other remains last.
+
+All preexisting choice values from the venue milestone were preserved, including
+`Quinceanera` behind the corrected display label. Dependency inspection found
+conditions on Standalone custom-product order and Other; both values and their
+rules stayed unchanged. Native readback and Chrome checks confirmed ordering,
+new options, Other's description and standalone-event question hiding. No
+historical entries were changed. This ordering is included in the services
+baseline below and was not altered by that refinement.
+
+## Services and custom pieces refinement
+
+Date: November 19, 2026. Target verified again as `https://oxygen.pmtparty.com`:
+WordPress 7.1.5, Oxygen 6.2.2, PHP 8.5.13. All writes used native Formidable
+abilities or documented Oxygen element properties. No plugin, server, production,
+payment, notification or access-setting changes were made.
+
+### Capture and rollback
+
+Before changes, captured form 13, its 81 fields, confirmation action, style 4685
+and inquiry tree in ignored `private/form13-services-before-20261119.json`.
+SHA-256: `63ECB3C20AF22A789AE47952D44950DA0FCF7A2D23A774BE815B6FBC0C89ED94`.
+Prepared `private/form13-services-rollback-20261119.json` with supported targeted
+updates for the 21 modified existing fields and the four Oxygen elements.
+Every rollback property was compared against the baseline and matched.
+
+Rollback retains new field IDs 240–245, makes them optional and hides them with
+native conditions; it does not delete fields or entries. Reverting field 168's
+checkbox type to its old radio type would need review of any newer multi-choice
+entries before editing those entries. No historical answer migration is part of
+rollback. Re-read the current state and preserve newer work before applying it.
+Rollback was validated as a payload, not executed against the completed form.
+
+After verification, captured `private/form13-services-after-20261119.json`.
+SHA-256: `BB5A6E0781932E61CAC7B9538C07D260D95BF7244B6C06D23804016A63F22179`.
+These are private local configuration captures, not entries, database dumps or
+Git-backed runtime backups. All four named private files are ignored by Git.
+
+### Fields and conditions
+
+Six new native optional fields were added. No existing field was deleted. There
+are **87 field records**, including layout/HTML/page-break fields, and native
+submit 221 remains last. The current visual style 4685 was not changed.
+
+| Field | Purpose and conditions |
+| --- | --- |
+| 240 — `pmt-rental-pieces` | Optional rental checklist for Rentals: artificial floral centerpieces, cherry blossom trees, candelabras, mirror displays/easels, arches/backdrop structures, drapery/display equipment, marquee numbers, audio guest book, specialty pieces and Other/Need recommendations. Examples are subject to availability and estimate confirmation. |
+| 241 — `pmt-balloon-styles` | Optional checkbox for Balloons: garland, arch, columns, clusters/centerpieces, backdrop/larger installation, Other/Need recommendations. |
+| 242 — `pmt-decor-focus` | Optional table styling/linens/runners, chair décor, or other décor choice. Appears for event décor, florals, artificial floral rental selections or candelabras. |
+| 243 — `pmt-banner-formats` | Optional multi-choice formats: large printed backdrop, retractable standing banner, X-stand, standard vinyl/fabric banner, Other/Not sure. Appears for Custom Banners **or** a printed backdrop in 170. Supporting 8×8 ft, 31.5×80 in and 30×69 in dimensions are examples, not required sizes or guarantees. |
+| 244 — `pmt-display-equipment` | Optional Yes / I have my own / Not sure question for signage, banners or backdrops. Explains client-owned graphics and returnable PMT-owned rental equipment, subject to the agreed estimate. No mandatory ownership decision. |
+| 245 — `pmt-event-website-brief` | One optional description for the new Event websites & digital RSVP service: occasion, desired guest experience and timing. Scope, features and pricing require discussion; no fixed package, online payment or integration promises. |
+
+Existing fields were improved and reused:
+
+- Service checklist **167** keeps all existing stored values and adds the website
+  option. Its helper explains that floral/backdrop rental requests do not need
+  a second Rentals selection. This is a flexible estimate inquiry, not a catalog
+  or reservation system.
+- Floral fields **171/172/177** retain material choices and approximate quantity.
+  They show once for the Florals service **or** artificial floral centerpieces in
+  240. Guidance explains artificial rentals, fresh arrangements to keep, possible
+  fresh-flower cost differences, unusual requests and separate price/availability
+  confirmation. No Rent/Buy field was added.
+- Balloon colors/details **169** remain; its helper accepts an optional known
+  garland length or installation size. No technical measurements are required.
+- Backdrop preferences **170** keep their choices. Printed backdrops share **243**
+  and the existing banner quantity/size/wording field **223**, avoiding a duplicate
+  banner questionnaire. Shared product fields **222/227/189/228/229/230** now also
+  recognize that printed-backdrop selection. Artwork, deadline certainty, actual
+  deadline **233**, fulfillment and setup intent otherwise retain their validation
+  and stored choices.
+- Signage **168** became a native optional checkbox. It offers printed guest
+  charts, framed charts, mirrors, welcome signs, memorial/photo displays, table
+  numbers, bar signs, directional signs and custom guidance. Old stored values
+  `Framed chart on an easel`, `Mirror with names in vinyl` and
+  `Other / please advise` are preserved behind clearer labels. Existing **224**
+  collects optional quantities, sizes and wording; **225** keeps the units.
+  A framed 24×36-inch chart is described as an example, not a fixed product.
+- Rental details **190** moved beside 240 and stays an optional quantity/additional
+  request area. Helpers discourage repeating florals, backdrops or signage already
+  requested elsewhere. No separate rental quantities are required for floral work.
+- Table count **174** now depends on table styling, florals, artificial floral
+  rentals or candelabras, not broad décor alone. Its helper allows skipping it if
+  the centerpiece quantity already covers the request. Chair count **176** appears
+  only for Chair décor in 242. Optional runners **175** appear for table styling.
+  None of these quantities became mandatory.
+- Budget heading **232** and helper **198** now cover all requested services and
+  products, including digital work if selected, rather than the entire event
+  budget. The range values are unchanged. The final label is **Budget range**:
+  the initially longer wording crowded the native mobile Edit button, so it was
+  shortened and visually rechecked without changing CSS.
+
+### What happens next and preserved objects
+
+Reused Oxygen 4662's existing support group **126** and text elements **123–125**
+for **What happens next?** The copy explains inquiry review, clarification,
+itemized custom products/rentals/décor/delivery/installation/breakdown and fees,
+estimate revisions, the later PandaDoc agreement after scope/price approval,
+and booking/payment arrangements under that agreement. It expressly says the
+inquiry does not guarantee availability, reserve inventory, fix a price or book.
+This is explanatory copy only; no PandaDoc, contract or payment action was added.
+
+Only those four nodes' content/custom names changed. Exact tree comparison,
+after excluding the intended text/name edits, confirmed identical hierarchy,
+classes, settings, IDs and references. All authored nodes retain descriptive
+Structure labels; Oxygen's root document node is not an authored element.
+The native Shortcode embed **142** remains unchanged. Saved trees for homepage
+**4640** and components **4642/4648** are identical to the baseline.
+
+Original form **3** was never written; its settings compared identical. Form 13's
+form-level settings, action 4684 and style 4685 also compared exactly unchanged.
+The approved first-stage questions, Venue & Setup fields and routing, installation
+intent, required/optional venue safeguards, privacy 219, upload 197, CAPTCHA 180,
+native Summary 220 and submit 221 compared unchanged. Both WordPress pages remain
+**drafts**; form 13 remains administrator-only with entry editing disabled.
+
+### Functional and responsive verification
+
+Rechecked the sole confirmation action before every submission scenario. Used
+synthetic browser inquiries and exact email searches restricted to form 13;
+no unrelated submissions were listed. Entries **60–69** all reached the existing
+staging confirmation and normal saved status 0, not draft or spam.
+
+| Entry / scenario | Verified result |
+| --- | --- |
+| 60 — artificial florals | Material and eight centerpieces saved without requiring Rentals; five-stage setup flow worked. No irrelevant chair quantity. |
+| 61 — fresh florals | Fresh selection, ten centerpieces and floral preferences saved; no forced purchase/rental decision. |
+| 62 — balloon garland | Garland choice, colors and optional approximate length appeared in Summary and storage; unrelated table questions stayed hidden. |
+| 63 — large printed backdrop | Selecting printed backdrop without Custom Banners exposed shared banner/production questions; 8×8 request saved. Missing artwork/deadline answers blocked advancement on Services. |
+| 64 — retractable and X-stand | Both formats, example dimensions and display-equipment request saved in a products-only four-stage flow. |
+| 65 — framed seating chart | 24×36 dimensions, inches and display equipment saved; raw choice retained `Framed chart on an easel`. |
+| 66 — mirror and display rental | Mirror signage and mirror/easel rental saved together; raw signage choice retained `Mirror with names in vinyl`. |
+| 67 — rental equipment | Blossom trees, arch, marquee and audio guest book saved with optional quantities. Unrelated table/chair counts stayed hidden. |
+| 68 — event website | Brief and website service saved without physical-product requirements. A previously selected/removed banner and display-equipment answer were empty in storage. |
+| 69 — mixed / mobile / changed answers | Rental artificial florals reused the existing floral questions. Native Summary Edit returned to Services. Removing florals, printed banner, balloons, website and table/chair focus cleared 12 obsolete field answers in Summary and storage. Signage, drapery, audio guest book, shared artwork and display-equipment answers remained. Back to Venue and forward to Contact retained the approval answer. |
+
+Desktop **1440×1000**, tablet **768×1024**, and mobile **390×844** were checked
+for overflow and inspected visually, including new choices, wrapping, helper text,
+the estimate guidance and native review. No horizontal overflow; no stylesheet
+change was needed. A final non-submitted walkthrough verified the shortened
+mobile Budget range label clears the Edit button. The browser was returned to
+the opening authenticated draft preview afterward.
+
+Oxygen's native preview rendered the genuine form and workflow copy. Console
+inspection found one Google iframe **report-only** Content Security Policy
+message, with no blocking action, plus existing authenticated Hostinger warnings.
+These did not prevent the ten submissions. The administrator bar and Agent widget
+remain visible in the administrator test session; no access restrictions were
+relaxed to test a public visitor. No critical form JavaScript failure was observed.
+
+### Limits and next-release considerations
+
+- Native conditions clear answers when a category becomes hidden. Shared free-text
+  specifications are intentionally retained while that category still applies;
+  they are not automatically rewritten if one banner/sign format is replaced
+  within the same category. Customers should review that text using Summary/Edit.
+- Inventory examples do not establish stock, rental reservations or final pricing.
+  PMT still confirms equipment ownership/returns, scope and fees in its estimate
+  and agreement. Initial venue unknowns still require later planning follow-up.
+- Upload/privacy and anti-spam settings compared unchanged; this pass did not
+  repeat the earlier file-security tests or reopen the Oxygen visual editor.
+  Saved native labels and frontend rendering were verified through supported tools.
+- Public rendering, release notification recipients, staging/indexing protection
+  and publication approval remain release gates. No page was published, and no
+  outbound notification, payment or live integration was enabled.

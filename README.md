@@ -32,6 +32,12 @@ Venue & Setup now starts with a short preliminary assessment. Existing technical
 fields sit behind an optional details choice, while setup risks and venue approval
 remain explicit. Six further synthetic inquiries verified full, simple, elevated,
 unknown, products-only and mixed requests, including clearing hidden details.
+Services & custom pieces now includes optional balloon and banner formats,
+recognizable signage and rental choices, relevant table/chair questions, and a
+short event website/RSVP brief. Floral rental guidance and the itemized-estimate
+workflow are clearer. Ten more browser submissions verified the service paths,
+native Summary/Edit navigation and clearing removed-service answers. The current
+form has 87 field records; its approved visual style remains unchanged.
 The original form and its actions remain unchanged; the copy has no outbound
 notification, spreadsheet, webhook, or payment actions.
 

@@ -123,6 +123,23 @@ its implementation until the public website foundation is approved.
   page. Verify the final saved synthetic entry, not only hidden browser controls.
 - The owner added native submit field 221. Keep it last; do not assume this form
   still uses only the form-level fallback submit button.
+- Services refinement uses optional native fields 240–245 for rental examples,
+  balloon styles, table/chair focus, banner formats, display equipment and the
+  event website/RSVP brief. These collect estimate information, not orders or
+  availability guarantees. Do not introduce mandatory Rent/Buy decisions.
+- Floral fields 171/172/177 are shared by the Florals service and the artificial
+  floral rental choice in 240. Printed-backdrop choice 170 uses the same banner
+  and shared production questions as Custom Banners. Preserve these OR rules;
+  neither path requires selecting a second top-level service.
+- Signage field 168 is now a checkbox with its original stored values retained.
+  Table count 174 is conditional on table styling, florals or relevant rentals;
+  chair count 176 requires chair décor in 242. Runners 175 require table styling.
+  Quantities remain optional. Shared specification text is not rewritten when
+  a format changes within a still-selected category; customers review it with
+  native Summary/Edit. Hidden categories must clear their saved answers.
+- Inquiry-page estimate guidance describes manual scope review, estimate
+  revisions and the later PandaDoc agreement. It does not authorize contract,
+  payment or inventory integrations, nor promise a booking or final price.
 
 ### Application implementation
 
