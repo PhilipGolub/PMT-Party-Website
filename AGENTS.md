@@ -106,6 +106,16 @@ its implementation until the public website foundation is approved.
 - Form 13's venue page break 199 depends on installation field 192. Both Yes
   and Not sure keep the installation questions; No skips the page. Preserve
   fields 202–216 and the added access-confirmation field 231.
+- The initial Venue & Setup assessment requires setting 202, setup-risk status
+  237, approval status 214 and preliminary acknowledgment 216. Risk checklist
+  239 is required only for unusual conditions. Setting, risk status and approval
+  allow unsure answers; unknowns need later follow-up, not assumed approval.
+- Optional choice 238 reveals retained technical fields. Access confirmation
+  231 and mounting details 213 are optional at inquiry time. Measurement
+  certainty 211 is required only when a positive dimension is provided. Keep
+  numeric limits and field IDs; test clearing all related answers when details
+  or risks are hidden. Confirm venue facts and approvals during planning before
+  finalizing installation; inquiry answers do not replace contractual duties.
 - Product specifications are conditional by selected service. Shared product
   preferences apply across remaining products; product-specific wording belongs
   in that product's specifications. Test both changing categories and removing

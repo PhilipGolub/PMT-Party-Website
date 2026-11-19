@@ -475,3 +475,134 @@ Oxygen **6.2.2**, PHP **8.5.12**. Both pages **4640** and **4662** remain **draf
 Form 13 remains administrator-only with protected uploads. The existing
 publication gates and separate approval requirement still apply. Preview:
 `https://oxygen.pmtparty.com/?page_id=4662&preview=true`.
+
+## Welcoming Venue & Setup assessment — November 19, 2026
+
+Implemented on staging form **13** and inquiry draft **4662**. The venue stage
+now opens with a short preliminary assessment and a native conditional choice
+to share more details. No separate follow-up form, page, custom accordion,
+JavaScript routing, or CSS change was introduced. Dedicated style **4685** was
+compared exactly before/after and is unchanged.
+
+### Capture and restoration
+
+Before field changes, captured all 78 existing fields, form settings, action,
+style and Oxygen inquiry tree in the local Git-ignored file
+`private/form13-venue-before-20261119.json`. SHA-256:
+`EBAD4920026D4E2F11BD4F1566FAA39459B3DC71941D02CBEE05CAE36DB04251`.
+The completed configuration is in `private/form13-venue-after-20261119.json`.
+These files contain configuration only, without entries or credentials.
+
+The final restoration payload is
+`private/form13-venue-rollback-ready-20261119.json`; use it instead of the earlier
+preliminary rollback file. It restores the 21 changed existing field records,
+the progress-title option and four Oxygen text edits through native abilities.
+It retains new fields 237–239 and their data: the rollback makes them optional
+and hides them with documented native all-match conditions requiring field 192
+to equal both its mutually exclusive Yes and No choices. It does not delete
+fields or entries. Original values and target IDs were checked against the
+snapshot. Coordinate editor sessions and reconcile any later owner edits before
+applying this rollback; no live rollback was needed during verification.
+
+### Event categories and stored values
+
+Field 163 now offers separate **Bar Mitzvah** and **Bat Mitzvah**, plus
+**B'nai Mitzvah / Joint Mitzvah**, **School or Community Event**,
+**Gala or Fundraiser**, and **Grand Opening / Brand Event**. There are 26 actual
+choices, including Standalone custom-product order and Other. Existing useful
+occasions were retained. **Quinceañera** is corrected as a display label while
+its existing stored value remains `Quinceanera`.
+
+Audited every field dependency on 163 and the sole form action. Conditions use
+only Standalone custom-product order and Other; neither value changed. Field
+182's Other description and all those conditions remain exactly unchanged.
+The retired combined mitzvah choice was not relabeled as one particular event
+or migrated: historical `Bar Mitzvah or Bat Mitzvah` answers retain their original
+meaning. New inquiries use the distinct choices. No historical entries were
+updated, exported or removed.
+
+### Preliminary questions and optional details
+
+The native page break 199 still depends on setup intent 192: Yes and Not sure
+retain the venue stage; No skips it. The progress title, stage introduction and
+Oxygen overview now say **Venue & Setup**. Initial guidance welcomes uncertainty
+and explains that measurements, loading and venue requirements are confirmed
+later, before finalizing the setup plan.
+
+| Field | Requirement and behavior |
+| --- | --- |
+| 202 — indoor/outdoor setting | Still required for a venue inquiry: Indoors, Outdoors, Both or I'm not sure yet. The unsure label keeps the existing `Not confirmed` stored value. |
+| 237 — `pmt-setup-complexity` | New required question: straightforward ground-level setup, unusual conditions, or I'm not sure yet. Guidance flags high ceilings, overhead décor, attachments, stairs/access and venue rules. |
+| 239 — `pmt-setup-risk-indicators` | New required checklist only when 237 indicates unusual conditions. Captures high/elevated décor; hanging/wall/ceiling attachments; stairs/elevators/loading/access; venue restrictions/limited setup time; outdoor surfaces/weather; or other requirements to discuss. |
+| 214 — venue approval | Still required in the preliminary assessment, moved ahead of detailed questions. Friendly confirmed/pending/unsure labels retain all existing stored values. A customer's venue approval answer does not mean PMT has inspected or approved the installation. |
+| 238 — `pmt-venue-details-optin` | New optional radio, titled “Have more venue details to share? (Optional)”. Only Yes reveals the technical questions. Blank or Not right now / I'm not sure keeps them hidden. |
+| 201 — optional guidance | Reused the existing non-input HTML note as guidance for the revealed details. Its former products-only note was on a page that products-only requests skip. No collected answer was removed. |
+| 203–210, 212, 215 | Existing setup/access times, breakdown window, loading, route, width/depth/height, measurement notes and detailed approvals retain their IDs and remain optional inside the revealed group. Numeric bounds, units and time defaults remain unchanged. |
+| 231 — access confirmation | **Changed from required to optional**, shown only in the additional-details group. |
+| 213 — mounting/restriction details | **Changed from required to optional**, shown only in that group. Required preliminary risk questions still flag known mounting or venue restrictions. |
+| 211 — measurement certainty | **Changed from unconditional venue requirement to conditional requirement**: appears and is required when any width, depth or height is greater than zero. Blank measurements need no certainty answer. This preserves the distinction between estimates and confirmed measurements when numbers are supplied. |
+| 216 — preliminary acknowledgment | Remains required: “I understand venue details and approvals need to be confirmed before PMT finalizes the setup plan.” Uses this new statement as its stored value rather than saving the former stronger wording under a shorter label. Existing acknowledgments are not rewritten. |
+
+All existing technical field IDs are retained. Technical questions are revealed
+through native Formidable field conditions, not an unmanaged collapsible block.
+There are now **81** field records. Native submit field 221 remains last.
+
+The acknowledgment helper states that the inquiry does not replace venue checks
+or responsibilities agreed during planning and contracting. No contract or
+separate responsibility terms were edited. PMT's planning gate remains:
+confirm accurate dimensions, mounting methods, loading/access, required equipment
+and venue approvals before finalizing an installation plan. This inquiry gathers
+early indicators; it does not automate or certify that later approval process.
+Unknown or missing technical details must be followed up, not treated as approval.
+
+### Closing copy and Oxygen preservation
+
+Contact-stage copy warmly welcomes the request and explains that an inquiry
+does not guarantee availability, pricing or a booking. Summary guidance now
+invites a quick check of the relevant groups without implying that every venue
+detail must already be known. The native Summary renderer, Edit navigation,
+privacy consent, upload restrictions, CAPTCHA and anti-spam settings are unchanged.
+Notification and confirmation actions were not edited.
+
+On Oxygen 4662, only text in elements 104, 115, 127 and 128 changed: the overview
+and venue guidance match the preliminary setup assessment. Native custom labels,
+classes, hierarchy, embed and component references remain intact. Saved trees
+for homepage 4640 and header/footer components 4642/4648 compared identical.
+Original form 3's settings also compared identical; no writes targeted it.
+
+### Verification
+
+Only synthetic data and exact test searches in form 13 were used. Before each
+submission scenario, rechecked that 4684 remained the sole save-and-confirm
+action, with no email, webhook, spreadsheet or payment action.
+
+| Entry / test | Verified outcome |
+| --- | --- |
+| 54 — full setup / Bar Mitzvah | Opted into details; estimated 12×6×10-foot space, loading and mounting notes saved with pending venue approval. |
+| 55 — simple ground-level / Bat Mitzvah | Technical details and risk checklist stayed hidden; no measurements or loading confirmation were required. Saved successfully. |
+| 56 — complex / joint mitzvah | High/elevated décor, hanging attachments, stairs/loading/access and venue restriction flags saved with approval pending, without demanding measurements. |
+| 57 — unknown / school or community | Unsure setting, risks, approval and installation intent accepted; five stages retained and optional technical questions hidden. Earlier Other description was cleared when the category changed. |
+| 58 — products only | Four-stage flow; Venue skipped during forward and Back navigation; new risk fields, venue acknowledgment and technical fields empty in storage. |
+| 59 — mixed / gala / mobile | Décor and banner request retained venue assessment. Summary Edit returned to Venue. Switching optional details off and changing unusual setup to straightforward cleared old dimensions, certainty, loading, mounting, access-confirmation and risk-checklist answers in review and saved entry. Product details and pending approval remained. |
+| Required validation | Empty setting, setup-risk status, approval and acknowledgment blocked advancement. Yes to unusual conditions required at least one risk selection. Entering dimensions required measurement certainty. |
+| Numeric validation | Height -1 failed native browser range validation against the retained 0.1 minimum and kept the user on Venue. Clearing it permitted advancement; no certainty answer was required for blank dimensions. |
+| Optional-details choice | Selecting Yes while leaving every technical answer blank was accepted; no hidden technical requirement prevented the inquiry. |
+| Categories | Grand Opening / Brand Event worked through review. Quinceañera selected with stored value `Quinceanera`; all 26 choices present and Other's conditional description worked. |
+| Review / confirmation | Native Summary displayed relevant preliminary answers and any supplied technical details; all six submissions reached the unchanged staging confirmation and normal saved-entry status. |
+| Responsive | Desktop 1440×1000, tablet 768×1024 and mobile 390×844 checked. Mobile label/helper wrapping and controls visually inspected; no horizontal overflow. No style changes needed. |
+| Browser | No JavaScript console errors in completed flows. Existing authenticated Hostinger widget warnings/overlay remain unrelated. |
+
+Entries **54–59** remain for administrator review. No entries or uploads were
+deleted. An additional validation-only walkthrough was not submitted.
+The earlier known synthetic entry 52 was checked by ID and still contains its
+original acknowledgment statement; the new wording did not rewrite that answer.
+
+Afterward, exact comparisons confirmed unchanged style 4685, action 4684,
+upload 197, privacy consent 219, CAPTCHA 180, page-break routing 199, setup intent
+192, Other description 182 and submit 221. Only the form-level progress title
+changed; administrator access, protected uploads and anti-spam remain intact.
+Oxygen's native preview rendered the real form and updated overview. Both pages
+**4640** and **4662** remain **drafts**. Production was not accessed or modified.
+Guest rendering of the unpublished form and visual-editor recovery were not
+claimed as tested by this pass. This Git record does not back up the runtime
+configuration; the private captures above are separate local artifacts.

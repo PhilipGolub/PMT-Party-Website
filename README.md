@@ -11,7 +11,7 @@ Foundation for the public website redesign and future custom WordPress developme
 GitHub and WordPress are separate systems. This repository does not deploy itself
 and does not contain the WordPress database or a working local WordPress install.
 
-## Current staging state — November 18, 2026
+## Current staging state — November 19, 2026
 
 Authenticated Oxygen development now uses `https://oxygen.pmtparty.com`.
 Homepage draft **4640** has native components and descriptive Structure labels.
@@ -28,6 +28,10 @@ clearer New York terminology, a conditional stage overview, and restrained
 readability improvements. Three more synthetic browser submissions verified
 products, installation and mixed mobile inquiries, stage-local validation,
 Back/Edit navigation, and blank optional times.
+Venue & Setup now starts with a short preliminary assessment. Existing technical
+fields sit behind an optional details choice, while setup risks and venue approval
+remain explicit. Six further synthetic inquiries verified full, simple, elevated,
+unknown, products-only and mixed requests, including clearing hidden details.
 The original form and its actions remain unchanged; the copy has no outbound
 notification, spreadsheet, webhook, or payment actions.
 
