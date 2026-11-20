@@ -37,7 +37,12 @@ recognizable signage and rental choices, relevant table/chair questions, and a
 short event website/RSVP brief. Floral rental guidance and the itemized-estimate
 workflow are clearer. Ten more browser submissions verified the service paths,
 native Summary/Edit navigation and clearing removed-service answers. The current
-form has 87 field records; its approved visual style remains unchanged.
+form has 89 field records, including two additional native layout markers for
+delivery/pickup routing; its approved visual style remains unchanged.
+Custom-product fulfillment now offers Delivery by PMT, Pickup by arrangement,
+or guidance only when relevant products are requested without on-site setup.
+Five further synthetic submissions verified labels, stored values, conditional
+clearing, four-/five-stage routing and mobile Summary/Edit behavior.
 The original form and its actions remain unchanged; the copy has no outbound
 notification, spreadsheet, webhook, or payment actions.
 

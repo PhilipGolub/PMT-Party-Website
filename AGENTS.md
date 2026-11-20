@@ -140,6 +140,14 @@ its implementation until the public website foundation is approved.
 - Inquiry-page estimate guidance describes manual scope review, estimate
   revisions and the later PandaDoc agreement. It does not authorize contract,
   payment or inventory integrations, nor promise a booking or final price.
+- Fulfillment field 230 follows setup intent 192. Native non-repeating section
+  246 (closed by 247) shows only for the existing No setup value; 230 retains
+  the product-service/printed-backdrop OR conditions inside it. Yes, Not sure,
+  blank setup or no relevant products must not demand a fulfillment choice.
+  Keep Delivery/Pickup/Please advise labels separate from their legacy values,
+  with no default selection. The section has no visible heading or heading
+  spacer; its native Custom HTML omits only the heading line. Test clearing
+  fulfillment on setup/service changes and the native Summary/Edit controls.
 
 ### Application implementation
 

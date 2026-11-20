@@ -4,8 +4,8 @@ Date: November 18, 2026. Target: https://oxygen.pmtparty.com only.
 Branch: `codex/staging-editorial-refinement`.
 
 This is a chronological implementation record. The latest
-[services and custom pieces refinement](#services-and-custom-pieces-refinement)
-records the current 87-field configuration and synthetic test entries 60–69.
+[delivery and pickup refinement](#delivery-and-pickup-refinement)
+records the current 89-field configuration and synthetic test entries 70–74.
 Earlier sections describe the configuration and checks at those milestones.
 
 ## Result and ownership
@@ -787,3 +787,107 @@ relaxed to test a public visitor. No critical form JavaScript failure was observ
 - Public rendering, release notification recipients, staging/indexing protection
   and publication approval remain release gates. No page was published, and no
   outbound notification, payment or live integration was enabled.
+
+## Delivery and pickup refinement
+
+Date: November 19, 2026. Target verified again as `https://oxygen.pmtparty.com`
+on WordPress 7.1.5, Oxygen 6.2.2 and PHP 8.5.13. Scope: form 13's fulfillment
+question and native conditional grouping. Oxygen page 4662 continues to embed
+the same form; no Oxygen layout write was needed.
+
+### Saved configuration and wording
+
+Captured the current form, fields, actions, style and page trees before editing:
+`private/form13-fulfillment-before-20261119.json` (ignored), SHA-256
+`1CE4F6E61F668A8BD5031860C928BA1E0454304303DCFF4EF69C3AC88BD3F0A5`.
+The original payload and completed rollback reference are in
+`private/form13-fulfillment-rollback-20261119.json` and
+`private/form13-fulfillment-rollback-ready-20261119.json`.
+Rollback restores field 230's saved properties and moves it outside the section;
+the new native layout markers can remain hidden rather than being deleted.
+All rollback values were checked against the captured field, with `in_section: 0`
+explicitly restoring its former ungrouped state. No rollback was executed.
+
+Field **230** now asks exactly:
+
+> How would you prefer to receive your custom products?
+
+| Display order and label | Preserved stored value |
+| --- | --- |
+| 1. Delivery by PMT | `Delivery requested — please confirm availability` |
+| 2. Pickup by arrangement | `Pickup / collection requested` |
+| 3. I'm not sure — please advise | `Need guidance` |
+
+The default remains empty. Its native description appears beneath the options:
+
+> We'll confirm the available arrangements and any related costs in your personalized estimate.
+
+No field depended on 230 before the change. The sole confirmation action had no
+fulfillment-dependent condition. No stored choice value or historical entry was
+migrated, and no shipping or other fulfillment option was introduced.
+
+### Native conditions and placement
+
+Field 230 moved from order 160 to **192**, immediately after setup field **192**
+(which remains at order 190). Two non-input Formidable layout records provide
+native grouping: plain, non-repeating section **246** at order 191 and end marker
+**247** at order 193. These are not new questions or a new form. The total is now
+**89 field records**; native submit 221 remains last.
+
+The section is shown only when setup 192 equals its existing
+`No — products only / collection` value. Field 230 retains its existing OR rules
+for the six physical-product services or printed-backdrop selection in 170.
+This combines product relevance and no on-site setup without JavaScript, a
+calculated helper, or a dependency on answering the artwork question first.
+The existing required flag on 230 is unchanged and applies only when visible.
+No new required question was added.
+
+Yes, Not sure yet or blank setup hides the section and clears fulfillment. No
+setup with no relevant physical product also hides and clears 230. The setup
+field itself, its choices and the Venue page-break routing are unchanged:
+No retains four stages; Yes and Not sure retain five. Uncertain installation
+needs are left for PMT's follow-up rather than forcing a delivery/pickup choice.
+
+Section 246 has a descriptive administrator label but no visible heading.
+Its native Custom HTML template omits only the default heading line: Formidable's
+Label Position None hid the words but initially retained a 35-pixel heading
+spacer. Removing that unused line left a zero-height section when the product
+question is hidden. The standard section container and native child rendering
+remain, with no custom CSS or JavaScript. Field 230's template, typography,
+classes, spacing and responsive style remain unchanged.
+
+### Verification and preservation
+
+Before every submitted scenario, verified that 4684 remained the only action,
+with the unchanged staging save-and-confirm message. Used synthetic data only
+and exact test searches within form 13. All five entries saved with normal
+status 0 and reached the existing confirmation.
+
+| Entry / test | Result |
+| --- | --- |
+| 70 — Delivery by PMT | Delivery first, no radio preselected, exact helper below options. Blank visible fulfillment blocked advancement on Services. Summary used the new label; entry retained the original delivery value. |
+| 71 — Pickup by arrangement / mobile | Correct label and legacy pickup value saved. Native Summary Edit restored the selected choice. Back from Contact reached Inspiration and skipped Venue in the four-stage path. |
+| 72 — Please advise / printed backdrop | Printed backdrop exposed fulfillment without requiring Custom Banners as a second service. Summary used the new guidance label; stored value remained `Need guidance`. |
+| 73 — Mixed installation / changed setup | Delivery selected under No disappeared under Yes. Returning to No showed all choices blank. A subsequent pickup choice cleared under Not sure. Final Yes flow completed five stages; Summary and saved entry contained no fulfillment answer. Summary Edit also kept fulfillment hidden for installation. |
+| 74 — Physical products removed | Removing Custom Banners while keeping an event website request hid fulfillment despite No setup. Four-stage flow submitted without requiring it, and old delivery values were empty in storage. |
+
+After the section-spacing correction, rechecked reveal/hide/clear behavior and
+confirmed zero height when no product question applies. Desktop **1440×1000**
+and mobile **390×844** screenshots showed the exact wording, clear options and
+helper wrapping with no horizontal overflow or preselection. The browser was
+returned to the opening authenticated draft preview. This pass did not repeat
+unrelated upload/security tests or operate the Oxygen visual editor.
+
+Exact native comparisons showed **230 was the only existing field changed**.
+Setup 192, Venue & Setup, event/service questions, Summary, privacy/upload and
+anti-spam fields remain unchanged. Form-level settings, style 4685, action 4684
+and original form 3's settings compared identical. Trees for inquiry 4662,
+homepage 4640 and components 4642/4648 compared identical. Both pages remain
+**drafts** and form 13 remains administrator-only. Production, payment settings,
+notification actions and staging restrictions were not modified.
+
+The final ignored capture is `private/form13-fulfillment-after-20261119.json`,
+SHA-256 `00A7F787E7904361396FF95DE0D2EC7A2FEBEC7322CA6B027E2C3A23606EEF03`.
+Git records the work and checks, not the runtime configuration or submissions.
+No functional failure remains from this refinement. Guest/public validation
+still awaits the existing publication and access-protection release gates.
